@@ -2,7 +2,7 @@ const { spawn } = require('child_process');
 const fft = require('fft-js').fft;
 const fftUtil = require('fft-js').util;
 
-const SAMPLE_RATE = 44100;
+const SAMPLE_RATE = 32000;  // Changed to 32000 as per your request
 const BUFFER_SIZE = 65536;
 const BYTE_PER_SAMPLE = 2;
 const CHANNELS = 2;
@@ -11,11 +11,17 @@ let chunkBuffer = Buffer.alloc(0);
 let arecord;
 
 function startRecording(device) {
-    arecord = spawn('arecord', ['-D', device, '-f', 'S16_LE', '-r', '44100', '-c', '2', '-t', 'wav', '-']);
+    arecord = spawn('arecord', ['-D', device, '-f', 'S16_LE', '-r', `${SAMPLE_RATE}`, '-c', '2', '-t', 'wav', '-']);
 
     arecord.stdout.on('data', processAudioData);
     arecord.stderr.on('data', (data) => console.error(`arecord stderr: ${data}`));
     arecord.on('close', (code) => console.log(`arecord process exited with code ${code}`));
+}
+
+function stopRecording() {
+    if (arecord) {
+        arecord.kill();
+    }
 }
 
 function processAudioData(data) {
@@ -35,7 +41,6 @@ function processAudioData(data) {
         const frequencies = fftUtil.fftFreq(phasors, SAMPLE_RATE);
         const magnitudes = fftUtil.fftMag(phasors);
 
-        // Find dominant frequency
         let max = -Infinity;
         let idx = -1;
         for (let i = 0; i < magnitudes.length; i++) {
@@ -54,5 +59,6 @@ function processAudioData(data) {
 }
 
 module.exports = {
-    startRecording
+    startRecording,
+    stopRecording
 };

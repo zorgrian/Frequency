@@ -7,19 +7,18 @@
     "start": "node app.js"
   },
   "keywords": [
-  "frequency",
-  "analysis",
-  "audio",
-  "soundcard",
-  "detection",
-  "fft",
-  "signal processing",
-  "terminal",
-  "user interface",
-  "TUI",
-  "node.js"
-]
-
+    "frequency",
+    "analysis",
+    "audio",
+    "soundcard",
+    "detection",
+    "fft",
+    "signal processing",
+    "terminal",
+    "user interface",
+    "TUI",
+    "node.js"
+  ],
   "author": "Geoffrey David Cowne - M0OOZ",
   "license": "UNLICENSED",
   "dependencies": {

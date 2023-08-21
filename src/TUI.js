@@ -11,6 +11,20 @@ let audioDevices = [];
 
 function initialize() {
     listAudioDevices();
+    setupKeypressListener();
+}
+
+function setupKeypressListener() {
+    readline.emitKeypressEvents(process.stdin);
+    process.stdin.setRawMode(true);
+    process.stdin.on('keypress', (str, key) => {
+        if (key.name === 'escape') {
+            console.log('\nExiting application...');
+            functionality.stopRecording();
+            rl.close();
+            process.exit();
+        }
+    });
 }
 
 function listAudioDevices() {
@@ -44,7 +58,8 @@ function promptUserForDevice() {
     rl.question(question, (answer) => {
         const deviceIndex = parseInt(answer) - 1;
         if (audioDevices[deviceIndex]) {
-            functionality.startRecording(`hw:${audioDevices[deviceIndex].card},${audioDevices[deviceIndex].device}`);
+            const deviceString = `hw:${audioDevices[deviceIndex].card},${audioDevices[deviceIndex].device}`;
+            functionality.startRecording(deviceString);
         } else {
             console.log("Invalid choice. Please select from the given options.");
             promptUserForDevice();
