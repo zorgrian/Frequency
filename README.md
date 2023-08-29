@@ -1,34 +1,32 @@
-# FREQ-COUNT-NEW 🎵🔊
+# FREQ-COUNT-NEW
 
-Hey there, cosmic coder! 🌌 If you're looking to vibe with the frequencies of your machine, you've tuned into the right station. Dive into the `FREQ-COUNT-NEW` and embark on an audio journey like no other.
+This is a tool that connects to the sound card, on your machine, to track frequencies. It uses an FFT function rather than counting the number of zero crossovers or other techniques. 
 
-## Overview 🌍
+## Overview
 
-This bad boy's mission is to interface with the soundcards on your stellar machine, enabling you to count frequencies and tap into the music of the cosmos... or, well, your computer.
+The main function of `FREQ-COUNT-NEW` is to interface with the soundcards on your machine, enabling you to count frequencies.
 
-## Setup 🚀
+## Setup
 
-1. Make sure you've got Node.js and npm installed on your machine. If not, head over to [Node.js](https://nodejs.org/) and get that set up.
-2. Clone this repository or download it to your intergalactic device.
+1. Ensure you have Node.js and npm installed on your machine. If not, install it from [Node.js](https://nodejs.org/).
+2. Clone this repository or download it to your device.
 3. Navigate to the project root and run:
 ```bash
 npm install
 ```
 
-## Usage 🎛️
+## Usage
 
 ```bash
 node app.js
 ```
 
+Run the app, and you'll be prompted to choose an audio device. Make your selection, and let the app work.
 
+## Contribute
 
-Run the app, and you'll be prompted to choose an audio device. Make your selection, and let the app work its magic. It's a journey, not a destination, my friend.
+Contributions are always welcome.
 
-## Contribute 🌌
+## License
 
-Feel like adding some otherworldly features? Dive in! Contributions are always welcome. Just remember to stay groovy.
-
-## License 📜
-
-All Rights Reserved. This code is not meant to be redistributed or used without the permission of the original cosmic coder.
+This project is licensed under the GNU General Public License v3.0. This means that you can freely distribute and/or modify the software under the terms of the GNU General Public License as published by the Free Software Foundation, version 3 of the License. However, this program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details. It is mandatory to include the original source code and the `readme.md` file in any future versions of the code.
