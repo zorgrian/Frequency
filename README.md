@@ -4,7 +4,7 @@ This is a tool that connects to the sound card, on your machine, to track freque
 
 ## Overview
 
-The main function of `FREQ-COUNT-NEW` is to interface with the soundcards on your machine, enabling you to count frequencies.
+The main function of `FREQ-COUNT-NEW` is to interface with a soundcard on your machine, enabling you to count frequencies.
 
 ## Setup
 
